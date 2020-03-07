@@ -1,27 +1,27 @@
 const Sequelize = require('sequelize');
 const { mysql } = require('../DbConnection/DbConnection');
 
-const Category = mysql.define('tbl_Category', {
-    Category_id: {
+const Brand = mysql.define('tbl_Brand', {
+    brand_Id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
-    Category_Name: {
+    name: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    active: {
-        type: Sequelize.INTEGER(1),
-        defaultValue: 0
+    type: {
+        type: Sequelize.STRING,
+        allowNull: false,
     }
 });
 
-Category.sync({ force: false }).then((res) => {
-    console.log('Category Table Create Succesfully');
+Brand.sync({ force: false }).then((res) => {
+    console.log('Brand Table Create Successfully');
 }).catch((err) => {
     console.log('Error in creating Table', err);
 })
 
-module.exports = Category;
+module.exports = Brand;
 

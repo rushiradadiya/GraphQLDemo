@@ -70,20 +70,6 @@ const Query = new GraphQLObjectType({
     description: 'Root query object',
     fields: () => {
         return {
-            // person: {
-            //     type: new GraphQLList(Person),
-            //     args: {
-            //         id: {
-            //             type: GraphQLInt
-            //         },
-            //         email: {
-            //             type: GraphQLString
-            //         }
-            //     },
-            //     resolve (root, args) {
-            //         return Db.models.person.findAll({ where: args });
-            //     }
-            // },
             posts: {
                 type: new GraphQLList(posts),
                 args:{
@@ -108,27 +94,6 @@ const Mutation = new GraphQLObjectType({
     description: 'Functions to set stuff',
     fields () {
         return {
-            // addPerson: {
-            //     type: Person,
-            //     args: {
-            //         firstName: {
-            //             type: new GraphQLNonNull(GraphQLString)
-            //         },
-            //         lastName: {
-            //             type: new GraphQLNonNull(GraphQLString)
-            //         },
-            //         email: {
-            //             type: new GraphQLNonNull(GraphQLString)
-            //         }
-            //     },
-            //     resolve (source, args) {
-            //         return Db.models.person.create({
-            //             firstName: args.firstName,
-            //             lastName: args.lastName,
-            //             email: args.email.toLowerCase()
-            //         });
-            //     }
-            // },
             addPost: {
                 type: posts,
                 args: {
