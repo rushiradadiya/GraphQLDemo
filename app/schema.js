@@ -96,17 +96,17 @@ const Mutation = new GraphQLObjectType({
         return {
             addPost: {
                 type: posts,
-                args: {
-                    userId: {
-                        type: GraphQLNonNull(GraphQLInt)
+                    args: {
+                        userId: {
+                            type: GraphQLNonNull(GraphQLInt)
+                        },
+                        title: {
+                            type: GraphQLNonNull(GraphQLString)
+                        },
+                        content: {
+                            type: GraphQLNonNull(GraphQLString)
+                        }
                     },
-                    title: {
-                        type: GraphQLNonNull(GraphQLString)
-                    },
-                    content: {
-                        type: GraphQLNonNull(GraphQLString)
-                    }
-                },
                 resolve (source, args) {
 
                     return Db.models.posts.create({
